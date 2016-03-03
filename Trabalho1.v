@@ -1,6 +1,6 @@
 module Values(
     input clk,
-        output fio
+    output fio
    );
 
    assign fio = clk;
@@ -10,9 +10,9 @@ endmodule
 module Teste;
 
     reg clk;
-	wire fio;
+    wire fio;
 	  
-	always #5 clk = ~clk;
+    always #5 clk = ~clk;
 
 
     Values TESTANDO(clk
@@ -22,7 +22,7 @@ module Teste;
     initial begin
         $dumpvars(0, TESTANDO);
         #10;
-		clk <= 0;
+	clk <= 0;
         #500;
         $finish;
     end
