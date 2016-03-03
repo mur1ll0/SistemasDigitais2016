@@ -16,8 +16,8 @@ module Teste;
 
 
     Values TESTANDO(clk
-				  , fio
-				  );
+                  , fio
+                  );
 
     initial begin
         $dumpvars(0, TESTANDO);
