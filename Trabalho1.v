@@ -1,6 +1,6 @@
 module Values(
     input clk,
-	output fio
+        output fio
    );
 
    assign fio = clk;
