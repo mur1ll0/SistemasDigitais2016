@@ -20,8 +20,8 @@ int calc(ponto a, ponto b, ponto p){
 
 int main()
 {
-    system("mode con:cols=200 lines=200");
-    srand(time(NULL));
+    //system("mode con:cols=200 lines=200");
+    //srand(time(NULL));
 
     int resultado = 1, i, j, tipoOperacao;
     char screen[480][640];
@@ -38,7 +38,7 @@ int main()
 
         while ((fscanf(in, "%d %d %d %d %d %d", &p1.x, &p1.y, &p2.x, &p2.y, &p3.x, &p3.y) != EOF) && (fscanf(inPoints, " %d %d", &P.x, &P.y) != EOF)){
 
-            system("cls");
+            //system("cls");
 
 
             if (calc(p1, p2, p3) <= 0) tipoOperacao = 0;
@@ -96,7 +96,7 @@ int main()
                 }
                 printf("\n");
             }
-        system("pause");
+        //system("pause");
         }
     }
 
