@@ -1,0 +1,7 @@
+Teste de pontos em Verilog
+
+Compilar usando:
+iverilog Triangulo.v testbench.v
+
+windows: vvp a.out
+linux:   ./a.out
