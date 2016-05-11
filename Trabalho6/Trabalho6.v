@@ -35,7 +35,7 @@ module memory(
 		output data_out
         );
 
-reg mem [11:0];
+reg mem [4096:0];
 
 assign data_out = write ? 1'bz : mem[address];
 
