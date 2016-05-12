@@ -80,7 +80,7 @@ wire data_in, data_out;
 
 wire s1, s2, s3, t1;
 
-memory M(address, wr, data_in, data_out);
+memory RAM(address, wr, data_in, data_out);
 
 calc S1(p1x, p1y, p2x, p2y, p3x, p3y, t1);
 calc S2(p1x, p1y, p2x, p2y, Px, Py, s1);
