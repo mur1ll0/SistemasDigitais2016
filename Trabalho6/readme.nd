@@ -1,0 +1,8 @@
+
+Trabalho6_ROM.v
+-> utilizar os arquivo TestPoints.txt para testar.
+
+Read_Write_usando_RAM.v
+-> Faz a leitura do TestPoints.txt e do TrianglePoints.txt e calcula se o ponto esta dentro do triângulo.
+-> O resultado do teste é armazenado em uma memória RAM que armazena 4096 posições de 1 bit cada.
+-> Após fazer os calculos, o programa le do início da memória até fim e grava os resultados salvos na RAM em um arquivo de texto. 
