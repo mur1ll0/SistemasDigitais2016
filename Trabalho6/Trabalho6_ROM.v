@@ -1,9 +1,8 @@
-*/
-A entrada é um arquivo contendo as coordenadas dos pontos de teste.
-Contém 5 triangulos salvos na memório ROM.
-Para cada ponto de teste, todos os triângulos são testados.
-A saída é gravada em um arquivo mostrando 1 se o ponto testado esta dentro do triângulo e 0 se não estiver.
-*/
+//A entrada é um arquivo contendo as coordenadas dos pontos de teste.
+//Contém 5 triangulos salvos na memório ROM.
+//Para cada ponto de teste, todos os triângulos são testados.
+//A saída é gravada em um arquivo mostrando 1 se o ponto testado esta dentro do triângulo e 0 se não estiver.
+
 
 module calc(
     input [10:0] p1x,
