@@ -1,4 +1,4 @@
-module TesteVGA(
+module Cubo_move_VGA(
 		input CLOCK_50,
 		input [3:0] KEY,
 		input [9:0] SW,
