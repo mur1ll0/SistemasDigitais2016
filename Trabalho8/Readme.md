@@ -1,1 +1,1 @@
-Altere DE1 - Triangles VGA using SRAM
+Verilog Altera DE1 - Triangles on VGA using SRAM
