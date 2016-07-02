@@ -18,4 +18,4 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   The resolution VGA display is 640 x 480 pixels and uses a frequency of 25Hz.</br>
   Use the switches to select the triangles will be drawn on the screen.</br>
   
-  Known issues: SRAM memory supports 262,144 16 bits of information, but the video memory at a resolution of 640 x 480 pixels requires 307,200 12-bit color information (RGB). Using a state for writing and one for reading will work just fine, but the memory will never store an entire frame of video.
+  Known issues: SRAM memory supports 262,144 16-bit of information, but the video memory at a resolution of 640 x 480 pixels requires 307,200 12-bit color information (RGB). Using a state for writing and one for reading will work just fine, but the memory will never store an entire frame of video.
