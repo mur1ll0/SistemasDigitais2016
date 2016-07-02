@@ -1,7 +1,7 @@
-# Verilog Altera DE1 - Triangles on VGA using SRAM
+# **Verilog Altera DE1 - Triangles on VGA using SRAM**
 ******************
 ## Instructions
-Use Quartus II 12.1 software to build the project in verilog.
+Use Quartus II 12.1 software to build the project in verilog.</br>
 This project uses Cyclone II DE1 board with the specifications:
   Package: FBGA
   Pin count: 484
