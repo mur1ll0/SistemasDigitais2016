@@ -103,9 +103,7 @@ module Trabalho8(
 			output SRAM_CE_N
 			);
 
-reg [4:0] state = 2;
-
-/////////////////////////
+////////////////////////////////
 //Pontos Triangulo
 reg [9:0] Px;
 reg [9:0] Py;
@@ -150,7 +148,7 @@ wire t1_3, s1_3, s2_3, s3_3;
 wire t1_4, s1_4, s2_4, s3_4;
 wire t1_5, s1_5, s2_5, s3_5;
 
-/////////////////////////
+////////////////////////////////////////
 
 //PROGRAMACAO MEMORIA SRAM
 reg [17:0] Waddr;
@@ -171,10 +169,14 @@ assign Wdata [3:0] = WRed;
 assign Wdata [7:4] = WGreen;
 assign Wdata [11:8] = WBlue;
 
+arbiter A(CLOCK_50, Waddr, Wdata, Raddr, Rdata, SRAM_ADDR, SRAM_DQ, SRAM_WE_N, SRAM_OE_N, SRAM_UB_N, SRAM_LB_N, SRAM_CE_N);
+
 //LEDS
 assign LEDR[3:0] = SRAM_DQ[11:8];
 assign LEDG[7:0] = SRAM_DQ[7:0];
-//////////////////////////////////////////
+
+
+//////////////////////////////////////////////
 
 //PROGRAMAÇÂO VGA
 
@@ -189,7 +191,33 @@ reg clock_state;
 
 assign VGA_HS = (h_count >= 660 && h_count <= 756) ? 0:1;
 assign VGA_VS = (v_count >= 494 && v_count <= 495) ? 0:1;
-//////////////////////////////////////////
+
+//Clock da VGA 25MHz
+always @(posedge CLOCK_50) begin
+	if (clock_state == 0) begin
+		CLK_25 = ~CLK_25;
+	end
+	else begin
+		clock_state = ~clock_state;
+	end
+end
+
+
+always @(posedge CLK_25) begin
+	if (h_count < 799) begin
+		h_count <= h_count + 1;
+	end
+	else begin
+		h_count <= 0;
+		if (v_count < 524) begin
+			v_count <= v_count + 1;
+		end
+		else begin
+			v_count <= 0;
+		end
+	end
+end
+////////////////////////////////////////////////////////////////
 
 calc S1_1(p1x_1, p1y_1, p2x_1, p2y_1, p3x_1, p3y_1, t1_1);
 calc S2_1(p1x_1, p1y_1, p2x_1, p2y_1, Px, Py, s1_1);
@@ -216,37 +244,7 @@ calc S2_5(p1x_5, p1y_5, p2x_5, p2y_5, Px, Py, s1_5);
 calc S3_5(p2x_5, p2y_5, p3x_5, p3y_5, Px, Py, s2_5);
 calc S4_5(p3x_5, p3y_5, p1x_5, p1y_5, Px, Py, s3_5);
 
-arbiter A(CLOCK_50, Waddr, Wdata, Raddr, Rdata, SRAM_ADDR, SRAM_DQ, SRAM_WE_N, SRAM_OE_N, SRAM_UB_N, SRAM_LB_N, SRAM_CE_N);
-
-
-//////////////////////////////////////////
-//Clock da VGA 25MHz
-always @(posedge CLOCK_50) begin
-	if (clock_state == 0) begin
-		CLK_25 = ~CLK_25;
-	end
-	else begin
-		clock_state = ~clock_state;
-	end
-end
-
-
-always @(posedge CLK_25) begin
-	if (h_count < 799) begin
-		h_count <= h_count + 1;
-	end
-	else begin
-		h_count <= 0;
-		if (v_count < 524) begin
-			v_count <= v_count + 1;
-		end
-		else begin
-			v_count <= 0;
-		end
-	end
-end
-
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 //Clock Circuito
 always @(posedge CLOCK_50) begin
 	Px <= h_count;
