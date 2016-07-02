@@ -1,8 +1,6 @@
 # Verilog Altera DE1 - Triangles on VGA using SRAM
 ******************
-##------------------
-##|  Instructions  |
-##------------------
+## Instructions
 Use Quartus II 12.1 software to build the project in verilog.
 This project uses Cyclone II DE1 board with the specifications:
   Package: FBGA
@@ -11,9 +9,7 @@ This project uses Cyclone II DE1 board with the specifications:
   Device: EP2C20F484C7
 Import the assigments: DE1_pin_assigments.csv
 ****************
-##----------------
-##|   Projects   |
-##----------------
+## Projects
 
 ### Trabalho8.v
   This project draws five triangles on the screen using a video memory from the integrated SRAM on the board.
