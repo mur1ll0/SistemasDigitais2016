@@ -3,10 +3,10 @@
 ## Instructions
 Use Quartus II 12.1 software to build the project in verilog.</br>
 This project uses Cyclone II DE1 board with the specifications:</br>
-  Package: FBGA</br>
-  Pin count: 484</br>
-  Speed grade: 7</br>
-  Device: EP2C20F484C7</br>
+* Package: FBGA</br>
+* Pin count: 484</br>
+* Speed grade: 7</br>
+* Device: EP2C20F484C7</br>
 Import the assigments: DE1_pin_assigments.csv</br>
 ****************
 ## Projects
