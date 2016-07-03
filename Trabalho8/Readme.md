@@ -25,4 +25,5 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   <p>You can control the writing in the memory using the switch 9:</br>
   * SW[9] == 1 to enable writing;</br>
   * SW[9] == 0 to disable writing;</br></p>
+  
   <p>Use the switches 0-4 to select the triangles will be drawn on the screen.</br></p>
