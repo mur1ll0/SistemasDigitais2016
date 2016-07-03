@@ -24,6 +24,6 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   <p>This project uses the same functions as Trabalho8.v, but the VGA only will print on the screen the data that fit in 262,144 positions in the SRAM memory, leaving 45,056 empty data.</br></p>
   <p>You can control the writing in the memory using the switch 9:</br>
   * SW[9] == 1 to enable writing;</br>
-  * SW[9] == 0 to disable writing;</br></p>
-  
-  <p>Use the switches 0-4 to select the triangles will be drawn on the screen.</br></p>
+  * SW[9] == 0 to disable writing;
+  </p>
+  <p><br>Use the switches 0-4 to select the triangles will be drawn on the screen.</br></p>
