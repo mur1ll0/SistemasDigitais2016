@@ -30,3 +30,8 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   * SW[9] == 0 to disable writing;</p>
   
   </br>
+
+### Trabalho7_320_240.v
+  <p>This project uses the same functions as Trabalho8_SRAM_Limited.v</br>
+  The resolution was reduced by half, from 640 x 480 pixels to 320 x 240 pixels.</br>
+  This makes the full frame of video can be stored in the SRAM memory, using only 76,800 16-bit data.</p>
