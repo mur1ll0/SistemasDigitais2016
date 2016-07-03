@@ -19,6 +19,8 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   Use the switches 0-4 to select the triangles will be drawn on the screen.</br></p>
   
   <p>Known issues: SRAM memory supports 262,144 16-bit of information, but the video memory at a resolution of 640 x 480 pixels requires 307,200 12-bit color information (RGB). Using a state for writing and one for reading will work just fine, but the memory will never store an entire frame of video.</p>
+  
+  </br>
 
 ### Trabalho8_SRAM_Limited.v
   <p>This project uses the same functions as Trabalho8.v, but the VGA only will print on the screen the data that fit in 262,144 positions in the SRAM memory, leaving 45,056 empty data.</br>
@@ -26,3 +28,5 @@ This project uses Cyclone II DE1 board with the specifications:</br>
   <p>You can control the writing in the memory using the switch 9:</br>
   * SW[9] == 1 to enable writing;</br>
   * SW[9] == 0 to disable writing;</p>
+  
+  </br>
