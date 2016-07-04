@@ -275,6 +275,7 @@ module JogoVGAv2(
 					end
 					else begin
 						ball_y_pos <= ball_y_pos + UD;
+						// If the line 277 doesn't work, use this lines bellow:
 						/*if (UD == -3) begin
 							ball_y_pos <= ball_y_pos - 3;
 						end
