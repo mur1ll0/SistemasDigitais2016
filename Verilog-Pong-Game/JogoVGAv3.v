@@ -256,7 +256,7 @@ module JogoVGAv3(
 							UD <= -3;
 						end
 					end
-					else if (UD > 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos + size_c <= y_pos1) begin
+					else if (UD > 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos + size_c >= y_pos1 && ball_y_pos < y_pos1 + size) begin
 						if (UD == 1) begin
 							UD < -1;
 						end
@@ -268,7 +268,7 @@ module JogoVGAv3(
 						end
 						
 					end
-					else if (UD > 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos + size_c <= y_pos2) begin
+					else if (UD > 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos + size_c >= y_pos2 && ball_y_pos < y_pos2 + size) begin
 						if (UD == 1) begin
 							UD < -1;
 						end
@@ -279,7 +279,7 @@ module JogoVGAv3(
 							UD <= -3;
 						end
 					end
-					else if (UD < 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos - size_c >= y_pos1 + size) begin
+					else if (UD < 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos - size_c <= y_pos1 + size && ball_y_pos > y_pos1) begin
 						if (UD == -3 || UD == 0) begin
 							UD <= 3;
 						end
@@ -290,7 +290,7 @@ module JogoVGAv3(
 							UD <= 1;
 						end
 					end
-					else if (UD < 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos - size_c >= y_pos2 + size) begin
+					else if (UD < 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos - size_c <= y_pos2 + size && ball_y_pos > y_pos2) begin
 						if (UD == -3 || UD == 0) begin
 							UD <= 3;
 						end
