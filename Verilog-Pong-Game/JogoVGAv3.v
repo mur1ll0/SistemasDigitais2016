@@ -322,7 +322,8 @@ module JogoVGAv3(
 						end
 						else if (UD == 3) begin
 							ball_y_pos <= ball_y_pos + 3;
-						end*/
+						end
+						*/
 					end	
 					
 					v_count <= 0;
@@ -370,86 +371,86 @@ module JogoVGAv3(
 					Blue <= 4'b0011;
 				end
 				//Numbers Player 1
-				if (HEX3[0] == 1 && py == > 175 && py < 180 && px > 150 && px < 250) begin
+				if (HEX3[0] == 0 && py == > 175 && py < 180 && px > 150 && px < 250) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[1] == 1 && py == > 180 && py < 240 && px > 245 && px < 250) begin
+				if (HEX3[1] == 0 && py == > 180 && py < 240 && px > 245 && px < 250) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[2] == 1 && py == >= 240 && py < 300 && px > 245 && px < 250) begin
+				if (HEX3[2] == 0 && py == >= 240 && py < 300 && px > 245 && px < 250) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[3] == 1 && py == > 295 && py < 300 && px > 150 && px < 250) begin
+				if (HEX3[3] == 0 && py == > 295 && py < 300 && px > 150 && px < 250) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[4] == 1 && py == >= 240 && py < 300 && px > 150 && px < 155) begin
+				if (HEX3[4] == 0 && py == >= 240 && py < 300 && px > 150 && px < 155) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[5] == 1 && py == > 180 && py < 240 && px > 150 && px < 155) begin
+				if (HEX3[5] == 0 && py == > 180 && py < 240 && px > 150 && px < 155) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX3[6] == 1 && py == > 237 && py < 243 && px > 150 && px < 250) begin
+				if (HEX3[6] == 0 && py == > 237 && py < 243 && px > 150 && px < 250) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
 				//Numbers Player 2
-				if (HEX0[0] == 1 && py == > 175 && py < 180 && px > 390 && px < 490) begin
+				if (HEX0[0] == 0 && py == > 175 && py < 180 && px > 390 && px < 490) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[1] == 1 && py == > 180 && py < 240 && px > 485 && px < 490) begin
+				if (HEX0[1] == 0 && py == > 180 && py < 240 && px > 485 && px < 490) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[2] == 1 && py == >= 240 && py < 300 && px > 485 && px < 490) begin
+				if (HEX0[2] == 0 && py == >= 240 && py < 300 && px > 485 && px < 490) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[3] == 1 && py == > 295 && py < 300 && px > 390 && px < 490) begin
+				if (HEX0[3] == 0 && py == > 295 && py < 300 && px > 390 && px < 490) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[4] == 1 && py == >= 240 && py < 300 && px > 390 && px < 395) begin
+				if (HEX0[4] == 0 && py == >= 240 && py < 300 && px > 390 && px < 395) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[5] == 1 && py == > 180 && py < 240 && px > 390 && px < 395) begin
+				if (HEX0[5] == 0 && py == > 180 && py < 240 && px > 390 && px < 395) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
 				end
 				
-				if (HEX0[6] == 1 && py == > 237 && py < 243 && px > 390 && px < 490) begin
+				if (HEX0[6] == 0 && py == > 237 && py < 243 && px > 390 && px < 490) begin
 					Red <= 4'b0011;
 					Green <= 4'b0011;
 					Blue <= 4'b0011;
