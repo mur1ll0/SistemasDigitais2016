@@ -47,8 +47,6 @@ module JogoVGAv3(
 	integer blink_count;
 	reg blink;
 	
-	reg [6:0] N1;
-	reg [6:0] N2;
 	reg numbers_active;
 	
 	reg [9:0] x_pos1;
