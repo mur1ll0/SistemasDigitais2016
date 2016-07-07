@@ -140,206 +140,205 @@ module JogoVGAv4(
 			y_pos2 <= 220;
 			numbers_active <= 1;
 		end
-		//else begin
-			if (h_count < 799) begin
-				h_count <= h_count + 1;
+
+		if (h_count < 799) begin
+			h_count <= h_count + 1;
+		end
+		else begin
+			h_count <= 0;
+			if (v_count < 524) begin
+				v_count <= v_count + 1;
 			end
 			else begin
-				h_count <= 0;
-				if (v_count < 524) begin
-					v_count <= v_count + 1;
-				end
-				else begin
+			
+				////////////////////
+				//   GAME LOGIC   //
+				////////////////////
 				
-					////////////////////
-					//   GAME LOGIC   //
-					////////////////////
-					
-					//PLAYER 1
-					if(KEY[3] == 0 && y_pos1 > 15) begin
-						y_pos1 <= y_pos1 - 3;
-					end
-					else if(KEY[2] == 0 && y_pos1 < 465 - size) begin
-						y_pos1 <= y_pos1 + 3;
-					end
-					
-					//PLAYER 2
-					if(KEY[0] == 0 && y_pos2 > 15) begin
-						y_pos2 <= y_pos2 - 3;
-					end
-					else if(KEY[1] == 0 && y_pos2 < 465 - size) begin
-						y_pos2 <= y_pos2 + 3;
-					end
-					
-					//BALL					
-					if (LR == 0) begin
-						if (ball_x_pos - size_c <= x_pos1 + 15 && ball_x_pos > x_pos1 + 15 && ball_y_pos + size_c >= y_pos1 && ball_y_pos - size_c <= y_pos1 + size) begin
-							LR <= 1;
-							// only work for size == 40
-							if (ball_x_pos < y_pos1 + 5) begin
-								UD <= -3;
-							end
-							else if (ball_y_pos >= y_pos1 + 5 && ball_y_pos < y_pos1 + 10) begin
-								UD <= -2;
-							end
-							else if (ball_y_pos >= y_pos1 + 10 && ball_y_pos < y_pos1 + 17) begin
-								UD <= -1;
-							end
-							else if (ball_y_pos >= y_pos1 + 17 && ball_y_pos < y_pos1 + 23) begin
-								UD <= 0;
-							end
-							else if (ball_y_pos >= y_pos1 + 23 && ball_y_pos < y_pos1 + 30) begin
-								UD <= 1;
-							end
-							else if (ball_y_pos >= y_pos1 + 30 && ball_y_pos < y_pos1 + 35) begin
-								UD <= 2;
-							end
-							else if (ball_y_pos >= y_pos1 + 35) begin
-								UD <= 3;
-							end
-						end
-						else if (speed != 0 && ball_x_pos - size_c <= 15) begin
-							speed <= 0;
-							UD <= 0;
-							numbers_active <= 1;
-							score2 <= score2 + 1;
-						end
-						else begin
-							ball_x_pos <= ball_x_pos - speed;
-						end
-					end
-					else if (LR == 1) begin
-						if (ball_x_pos + size_c >= x_pos2 && ball_x_pos < x_pos2 && ball_y_pos + size_c >= y_pos2 && ball_y_pos - size_c <= y_pos2 + size) begin
-							LR <= 0;
-							// only work for size == 40
-							if (ball_y_pos < y_pos2 + 5) begin
-								UD <= -3;
-							end
-							else if (ball_y_pos >= y_pos2 + 5 && ball_y_pos < y_pos2 + 10) begin
-								UD <= -2;
-							end
-							else if (ball_y_pos >= y_pos2 + 10 && ball_y_pos < y_pos2 + 17) begin
-								UD <= -1;
-							end
-							else if (ball_y_pos >= y_pos2 + 17 && ball_y_pos < y_pos2 + 23) begin
-								UD <= 0;
-							end
-							else if (ball_y_pos >= y_pos2 + 23 && ball_y_pos < y_pos2 + 30) begin
-								UD <= 1;
-							end
-							else if (ball_y_pos >= y_pos2 + 30 && ball_y_pos < y_pos2 + 35) begin
-								UD <= 2;
-							end
-							else if (ball_y_pos >= y_pos2 + 35) begin
-								UD <= 3;
-							end
-						end
-						else if (speed != 0 && ball_x_pos + size_c >= 625) begin
-							speed <= 0;
-							UD <= 0;
-							numbers_active <= 1;
-							score1 <= score1 + 1;
-						end
-						else begin
-							ball_x_pos <= ball_x_pos + speed;
-						end
-					end
-					
-					if (UD < 0 && ball_y_pos - size_c <= 15) begin
-						if (UD == -3) begin
-							UD <= 3;
-						end
-						else if (UD == -2) begin
-							UD <= 2;
-						end
-						else if (UD == -1) begin
-							UD <= 1;
-						end
-						
-					end
-					else if (UD > 0 && ball_y_pos + size_c >= 465) begin
-						if (UD == 1) begin
-							UD <= -1;
-						end
-						else if (UD == 2) begin
-							UD <= -2;
-						end
-						else if (UD == 3) begin
-							UD <= -3;
-						end
-					end
-					
-					else if (UD > 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos + size_c >= y_pos1 && ball_y_pos < y_pos1) begin
-						if (UD == 1) begin
-							UD <= -1;
-						end
-						else if (UD == 2) begin
-							UD <= -2;
-						end
-						else if (UD == 3 || UD == 0) begin
-							UD <= -3;
-						end
-						
-					end
-					else if (UD > 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos + size_c >= y_pos2 && ball_y_pos < y_pos2) begin
-						if (UD == 1) begin
-							UD <= -1;
-						end
-						else if (UD == 2) begin
-							UD <= -2;
-						end
-						else if (UD == 3 || UD == 0) begin
-							UD <= -3;
-						end
-					end
-					else if (UD < 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos - size_c <= y_pos1 + size && ball_y_pos > y_pos1 + size) begin
-						if (UD == -3 || UD == 0) begin
-							UD <= 3;
-						end
-						else if (UD == -2) begin
-							UD <= 2;
-						end
-						else if (UD == -1) begin
-							UD <= 1;
-						end
-					end
-					else if (UD < 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos - size_c <= y_pos2 + size && ball_y_pos > y_pos2 + size) begin
-						if (UD == -3 || UD == 0) begin
-							UD <= 3;
-						end
-						else if (UD == -2) begin
-							UD <= 2;
-						end
-						else if (UD == -1) begin
-							UD <= 1;
-						end
-					end
-					
-					else begin
-						if (UD == -3) begin
-							ball_y_pos <= ball_y_pos - 3;
-						end
-						else if (UD == -2) begin
-							ball_y_pos <= ball_y_pos - 2;
-						end
-						else if (UD == -1) begin
-							ball_y_pos <= ball_y_pos - 1;
-						end
-						else if (UD == 1) begin
-							ball_y_pos <= ball_y_pos + 1;
-						end
-						else if (UD == 2) begin
-							ball_y_pos <= ball_y_pos + 2;
-						end
-						else if (UD == 3) begin
-							ball_y_pos <= ball_y_pos + 3;
-						end
-					end
-					
-					v_count <= 0;
+				//PLAYER 1
+				if(KEY[3] == 0 && y_pos1 > 15) begin
+					y_pos1 <= y_pos1 - 3;
 				end
+				else if(KEY[2] == 0 && y_pos1 < 465 - size) begin
+					y_pos1 <= y_pos1 + 3;
+				end
+				
+				//PLAYER 2
+				if(KEY[0] == 0 && y_pos2 > 15) begin
+					y_pos2 <= y_pos2 - 3;
+				end
+				else if(KEY[1] == 0 && y_pos2 < 465 - size) begin
+					y_pos2 <= y_pos2 + 3;
+				end
+				
+				//BALL					
+				if (LR == 0) begin
+					if (ball_x_pos - size_c <= x_pos1 + 15 && ball_x_pos > x_pos1 + 15 && ball_y_pos + size_c >= y_pos1 && ball_y_pos - size_c <= y_pos1 + size) begin
+						LR <= 1;
+						// only work for size == 40
+						if (ball_x_pos < y_pos1 + 5) begin
+							UD <= -3;
+						end
+						else if (ball_y_pos >= y_pos1 + 5 && ball_y_pos < y_pos1 + 10) begin
+							UD <= -2;
+						end
+						else if (ball_y_pos >= y_pos1 + 10 && ball_y_pos < y_pos1 + 17) begin
+							UD <= -1;
+						end
+						else if (ball_y_pos >= y_pos1 + 17 && ball_y_pos < y_pos1 + 23) begin
+							UD <= 0;
+						end
+						else if (ball_y_pos >= y_pos1 + 23 && ball_y_pos < y_pos1 + 30) begin
+							UD <= 1;
+						end
+						else if (ball_y_pos >= y_pos1 + 30 && ball_y_pos < y_pos1 + 35) begin
+							UD <= 2;
+						end
+						else if (ball_y_pos >= y_pos1 + 35) begin
+							UD <= 3;
+						end
+					end
+					else if (speed != 0 && ball_x_pos - size_c <= 15) begin
+						speed <= 0;
+						UD <= 0;
+						numbers_active <= 1;
+						score2 <= score2 + 1;
+					end
+					else begin
+						ball_x_pos <= ball_x_pos - speed;
+					end
+				end
+				else if (LR == 1) begin
+					if (ball_x_pos + size_c >= x_pos2 && ball_x_pos < x_pos2 && ball_y_pos + size_c >= y_pos2 && ball_y_pos - size_c <= y_pos2 + size) begin
+						LR <= 0;
+						// only work for size == 40
+						if (ball_y_pos < y_pos2 + 5) begin
+							UD <= -3;
+						end
+						else if (ball_y_pos >= y_pos2 + 5 && ball_y_pos < y_pos2 + 10) begin
+							UD <= -2;
+						end
+						else if (ball_y_pos >= y_pos2 + 10 && ball_y_pos < y_pos2 + 17) begin
+							UD <= -1;
+						end
+						else if (ball_y_pos >= y_pos2 + 17 && ball_y_pos < y_pos2 + 23) begin
+							UD <= 0;
+						end
+						else if (ball_y_pos >= y_pos2 + 23 && ball_y_pos < y_pos2 + 30) begin
+							UD <= 1;
+						end
+						else if (ball_y_pos >= y_pos2 + 30 && ball_y_pos < y_pos2 + 35) begin
+							UD <= 2;
+						end
+						else if (ball_y_pos >= y_pos2 + 35) begin
+							UD <= 3;
+						end
+					end
+					else if (speed != 0 && ball_x_pos + size_c >= 625) begin
+						speed <= 0;
+						UD <= 0;
+						numbers_active <= 1;
+						score1 <= score1 + 1;
+					end
+					else begin
+						ball_x_pos <= ball_x_pos + speed;
+					end
+				end
+				
+				if (UD < 0 && ball_y_pos - size_c <= 15) begin
+					if (UD == -3) begin
+						UD <= 3;
+					end
+					else if (UD == -2) begin
+						UD <= 2;
+					end
+					else if (UD == -1) begin
+						UD <= 1;
+					end
+					
+				end
+				else if (UD > 0 && ball_y_pos + size_c >= 465) begin
+					if (UD == 1) begin
+						UD <= -1;
+					end
+					else if (UD == 2) begin
+						UD <= -2;
+					end
+					else if (UD == 3) begin
+						UD <= -3;
+					end
+				end
+				
+				else if (UD > 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos + size_c >= y_pos1 && ball_y_pos < y_pos1) begin
+					if (UD == 1) begin
+						UD <= -1;
+					end
+					else if (UD == 2) begin
+						UD <= -2;
+					end
+					else if (UD == 3 || UD == 0) begin
+						UD <= -3;
+					end
+					
+				end
+				else if (UD > 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos + size_c >= y_pos2 && ball_y_pos < y_pos2) begin
+					if (UD == 1) begin
+						UD <= -1;
+					end
+					else if (UD == 2) begin
+						UD <= -2;
+					end
+					else if (UD == 3 || UD == 0) begin
+						UD <= -3;
+					end
+				end
+				else if (UD < 0 && ball_x_pos - size_c < x_pos1 + 15 && ball_x_pos + size_c > x_pos1 && ball_y_pos - size_c <= y_pos1 + size && ball_y_pos > y_pos1 + size) begin
+					if (UD == -3 || UD == 0) begin
+						UD <= 3;
+					end
+					else if (UD == -2) begin
+						UD <= 2;
+					end
+					else if (UD == -1) begin
+						UD <= 1;
+					end
+				end
+				else if (UD < 0 && ball_x_pos + size_c > x_pos2 && ball_x_pos - size_c < x_pos2 + 15 && ball_y_pos - size_c <= y_pos2 + size && ball_y_pos > y_pos2 + size) begin
+					if (UD == -3 || UD == 0) begin
+						UD <= 3;
+					end
+					else if (UD == -2) begin
+						UD <= 2;
+					end
+					else if (UD == -1) begin
+						UD <= 1;
+					end
+				end
+				
+				else begin
+					if (UD == -3) begin
+						ball_y_pos <= ball_y_pos - 3;
+					end
+					else if (UD == -2) begin
+						ball_y_pos <= ball_y_pos - 2;
+					end
+					else if (UD == -1) begin
+						ball_y_pos <= ball_y_pos - 1;
+					end
+					else if (UD == 1) begin
+						ball_y_pos <= ball_y_pos + 1;
+					end
+					else if (UD == 2) begin
+						ball_y_pos <= ball_y_pos + 2;
+					end
+					else if (UD == 3) begin
+						ball_y_pos <= ball_y_pos + 3;
+					end
+				end
+				
+				v_count <= 0;
 			end
-		//end
+		end
 	end
 	
 	////////////////////////
