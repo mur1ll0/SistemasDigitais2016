@@ -134,7 +134,7 @@ module batalha (
   end
   
   //OU A LOGICA PODERIA SER BEM MAIS SIMPLES:
-  //assign LEDG[0] = (SW[2:0] == SW[9:7];
+	//assign LEDG[0] = (SW[2:0] == SW[9:7]) ? 1:0;   //Nao lembro se os leds são negados, se for é só inverter "1:0" pra "0:1"
   
   
   /* COLOQUE A LOGICA DENTRO DE ALWAYS SEMPRE, ESSA PARTE DO SEU CODIGO NUNCA IRIA FUNCIONAR (AFINAL NAO EXISTE UM GATILHO "@"):
@@ -158,7 +158,7 @@ module test;
         clk <= ~clk;
     end
 
-    assign saida = (jog1==jog2);
+    assign saida = (jog1==jog2)? 1:0;
 
     initial begin
       $dumpvars(0, clk, jog1, jog2, saida);
